@@ -12,7 +12,6 @@ function getComputerChoice() {
     console.log(`COMPUTER'S CHOICE : Scissors`);
   }
 }
-getComputerChoice();
 
 // HUMAN'S CHOICE
 
@@ -21,4 +20,39 @@ function getHumanChoice() {
   console.log(`HUMAN'S CHOICE : `, userInput);
 }
 
-getHumanChoice();
+// PLAYERS SCORES
+
+let humanScore = 0;
+let computerScore = 0;
+let roundWinner = `Winner : `;
+
+console.log(humanScore);
+console.log(computerScore);
+console.log(roundWinner);
+
+// PLAY A SINGLE ROUND
+
+function playRound(humanChoice, computerChoice) {
+  if (
+    (humanChoice === `Rock` && computerChoice === `Scissors`) ||
+    (humanChoice === `Paper` && computerChoice === `Rock`) ||
+    (humanChoice === `Scissors` && computerChoice === `Paper`)
+  ) {
+    humanScore++;
+    roundWinner = `You won!`;
+  } else if (
+    (humanChoice === `Rock` && computerChoice === `Paper`) ||
+    (humanChoice === `Paper` && computerChoice === `Scissors`) ||
+    (humanChoice === `Scissors` && computerChoice === `Rock`)
+  ) {
+    computerScore++;
+    roundWinner = `You lose`;
+  } else {
+    roundWinner = `Tie! Play again!`;
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
