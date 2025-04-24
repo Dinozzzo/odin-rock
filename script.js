@@ -53,14 +53,24 @@ console.log(computerScore);
 //   }
 // }
 
+// (`Rock`, `Scissors`) || (`Paper`, `Rock`) || (`Scissors`, `Paper`)
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
+  if ((humanChoice = computerChoice)) {
+    console.log(`It's a tie. Let's play again!`);
+  } else if (
+    (`Rock`, `Paper`) ||
+    (`Paper`, `Scissors`) ||
+    (`Scissors`, `Rock`)
+  ) {
+    computerScore++;
+    console.log(`You lose this round!`);
+  } else {
+    console.log(`You win this round!`);
+    humanScore++;
+  }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
-
-console.log(humanSelection);
-console.log(computerSelection);
