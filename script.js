@@ -3,14 +3,15 @@
 // COMPUTER'S CHOICE
 
 function getComputerChoice() {
-  const a = Math.random();
-  if (a < 0.33) {
+  const computer = Math.random();
+  if (computer < 0.33) {
     console.log(`COMPUTER'S CHOICE : Rock`);
-  } else if (a < 0.66) {
+  } else if (computer < 0.66) {
     console.log(`COMPUTER'S CHOICE : Paper`);
   } else {
     console.log(`COMPUTER'S CHOICE : Scissors`);
   }
+  return computer;
 }
 
 // HUMAN'S CHOICE
@@ -18,41 +19,48 @@ function getComputerChoice() {
 function getHumanChoice() {
   let userInput = prompt(`Rock, Paper or Scissors ?`);
   console.log(`HUMAN'S CHOICE : `, userInput);
+  return userInput;
 }
 
 // PLAYERS SCORES
 
 let humanScore = 0;
 let computerScore = 0;
-let roundWinner = `Winner : `;
 
 console.log(humanScore);
 console.log(computerScore);
-console.log(roundWinner);
 
 // PLAY A SINGLE ROUND
 
+// function playRound(humanChoice, computerChoice) {
+//   humanChoice = humanChoice.toLowerCase();
+//   if (
+//     (humanChoice === `Rock` && computerChoice === `Scissors`) ||
+//     (humanChoice === `Paper` && computerChoice === `Rock`) ||
+//     (humanChoice === `Scissors` && computerChoice === `Paper`)
+//   ) {
+//     humanScore++;
+//     roundWinner = `You won!`;
+//   } else if (
+//     (humanChoice === `Rock` && computerChoice === `Paper`) ||
+//     (humanChoice === `Paper` && computerChoice === `Scissors`) ||
+//     (humanChoice === `Scissors` && computerChoice === `Rock`)
+//   ) {
+//     computerScore++;
+//     roundWinner = `You lose`;
+//   } else {
+//     roundWinner = `Tie! Play again!`;
+//   }
+// }
+
 function playRound(humanChoice, computerChoice) {
-  if (
-    (humanChoice === `Rock` && computerChoice === `Scissors`) ||
-    (humanChoice === `Paper` && computerChoice === `Rock`) ||
-    (humanChoice === `Scissors` && computerChoice === `Paper`)
-  ) {
-    humanScore++;
-    roundWinner = `You won!`;
-  } else if (
-    (humanChoice === `Rock` && computerChoice === `Paper`) ||
-    (humanChoice === `Paper` && computerChoice === `Scissors`) ||
-    (humanChoice === `Scissors` && computerChoice === `Rock`)
-  ) {
-    computerScore++;
-    roundWinner = `You lose`;
-  } else {
-    roundWinner = `Tie! Play again!`;
-  }
+  humanChoice = humanChoice.toLowerCase();
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+console.log(humanSelection);
+console.log(computerSelection);
