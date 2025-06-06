@@ -13,7 +13,7 @@ const rockBtn = document.querySelector(".rockBtn");
 const paperBtn = document.querySelector(".paperBtn");
 const scissorsBtn = document.querySelector(".scissorsBtn");
 const score = document.querySelector(".score");
-const buttons = document.querySelector("button");
+const buttons = document.querySelectorAll("#gameBtn");
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
